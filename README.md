@@ -5,7 +5,7 @@ Test for the presence of sensitive information (e.g. before publishing to a publ
 where the config file is a json file containing the configuration of the sensitive information.
 
 
-
+<br><br>
 *example config file*
 
 **sensitiveInformation.json**
