@@ -26,6 +26,7 @@ The root key (SensitivePropertiesScanner in this case) is the name of the scanne
 
 path is the name of the file with sensitive information
 key is an array of sensitive values.  If the keys for these values exist and are populated then an error message is created, otherwise no message is created.
+
 <br>
 *In order to scan more than one file, use more than one SensitivePropertiesScanner instance.*
 
