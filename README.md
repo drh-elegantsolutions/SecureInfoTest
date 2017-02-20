@@ -1,6 +1,6 @@
 Test for the presence of sensitive information (e.g. before publishing to a public repo)
 
-```java -jar -jar SecureInfoTest.jar <config file> <config file> <config file> ...```
+```java -jar SecureInfoTest.jar <config file> <config file> <config file> ...```
 
 where the config file is a json file containing the configuration of the sensitive information.
 
