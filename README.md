@@ -4,6 +4,7 @@ Test for the presence of sensitive information (e.g. before publishing to a publ
 
 where the config file is a json file containing the configuration of the sensitive information.
 
+
 *example config file*
 
 **sensitiveInformation.json**
@@ -22,6 +23,7 @@ The root key (SensitivePropertiesScanner in this case) is the name of the scanne
 
 
 **SensitivePropertiesScanner config**
+
 path is the name of the file with sensitive information
 key is an array of sensitive values.  If the keys for these values exist and are populated then an error message is created, otherwise no message is created.
 
