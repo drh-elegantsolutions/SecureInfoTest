@@ -4,8 +4,7 @@ Test for the presence of sensitive information (e.g. before publishing to a publ
 
 where the config file is a json file containing the configuration of the sensitive information.
 
-
-<br><br>
+<br>
 *example config file*
 
 **sensitiveInformation.json**
@@ -22,7 +21,7 @@ where the config file is a json file containing the configuration of the sensiti
 ```
 The root key (SensitivePropertiesScanner in this case) is the name of the scanner and there can be any number of instances.
 
-
+<br>
 **SensitivePropertiesScanner config**
 
 path is the name of the file with sensitive information
