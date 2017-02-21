@@ -49,6 +49,7 @@ KeyStoreScanner scans for the following file types (as determined by unix file)<
 <br>
 **Results**
 An exit code is returned to the operating system:
+
 0: Success
 1: Sensitive Information found (this will be listed, one instance per line)
 2: Unable to locate configuration file
