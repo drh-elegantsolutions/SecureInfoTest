@@ -50,9 +50,9 @@ KeyStoreScanner scans for the following file types (as determined by unix file)<
 **Results**
 An exit code is returned to the operating system:
 
-0: Success
-1: Sensitive Information found (this will be listed, one instance per line)
-2: Unable to locate configuration file
-3: Unable to read configuration file
-4: Problem examining files
-5: Unexpected error
+0: Success <br>
+1: Sensitive Information found (this will be listed, one instance per line) <br>
+2: Unable to locate configuration file <br>
+3: Unable to read configuration file <br>
+4: Problem examining files <br>
+5: Unexpected error <br>
