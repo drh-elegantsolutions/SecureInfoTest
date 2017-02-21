@@ -38,16 +38,15 @@ key is an array of sensitive values.  If the keys for these values exist and are
 There is no config required for KeyStoreScanner
 
 KeyStoreScanner scans for the following file types (as determined by unix file)<br>
-<pre>
-        Java KeyStore
-        Java JCE KeyStore
-        PGP key security ring
-        PGP signature
-        GPG key trust database
-        GNOME keyring
-        PGP signature
-        RSA Private Key (this is not in the magic database and looks for file that start with: '-----BEGIN RSA PRIVATE KEY-')
-</pre>
+&nbsp;&nbsp;&nbsp;&nbsp; Java KeyStore <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Java JCE KeyStore <br>
+&nbsp;&nbsp;&nbsp;&nbsp; PGP key security ring <br>
+&nbsp;&nbsp;&nbsp;&nbsp; PGP signature <br>
+&nbsp;&nbsp;&nbsp;&nbsp; GPG key trust database <br>
+&nbsp;&nbsp;&nbsp;&nbsp; GNOME keyring <br>
+&nbsp;&nbsp;&nbsp;&nbsp; PGP signature <br>
+&nbsp;&nbsp;&nbsp;&nbsp; RSA Private Key (this is not in the magic database and looks for file that start with: '-----BEGIN RSA PRIVATE KEY-') <br>
+<br>
 **Results**
 An exit code is returned to the operating system:
 0: Success
