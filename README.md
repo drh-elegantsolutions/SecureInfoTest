@@ -37,7 +37,8 @@ key is an array of sensitive values.  If the keys for these values exist and are
 
 There is no config required for KeyStoreScanner
 
-KeyStoreScanner scans for the following file types (as determined by unix file)
+KeyStoreScanner scans for the following file types (as determined by unix file)<br>
+<pre>
         Java KeyStore
         Java JCE KeyStore
         PGP key security ring
@@ -46,7 +47,7 @@ KeyStoreScanner scans for the following file types (as determined by unix file)
         GNOME keyring
         PGP signature
         RSA Private Key (this is not in the magic database and looks for file that start with: '-----BEGIN RSA PRIVATE KEY-')
-
+</pre>
 **Results**
 An exit code is returned to the operating system:
 0: Success
