@@ -16,10 +16,12 @@ where the config file is a json file containing the configuration of the sensiti
          "spring.datasource.username",
          "spring.datasource.password"
       ]
+   },
+   "KeyStoreScanner":{
    }
 }
 ```
-The root key (SensitivePropertiesScanner in this case) is the name of the scanner and there can be any number of instances.
+The root key (SensitivePropertiesScanner and KeyStoreScanner in this case) is the name of the scanner and there can be any number of instances.
 
 <br>
 **SensitivePropertiesScanner config**
@@ -30,3 +32,26 @@ key is an array of sensitive values.  If the keys for these values exist and are
 <br>
 *In order to scan more than one file, use more than one SensitivePropertiesScanner instance.*
 
+<br>
+**KeyStoreScanner config**
+
+There is no config required for KeyStoreScanner
+
+KeyStoreScanner scans for the following file types (as determined by unix file)
+        Java KeyStore
+        Java JCE KeyStore
+        PGP key security ring
+        PGP signature
+        GPG key trust database
+        GNOME keyring
+        PGP signature
+        RSA Private Key (this is not in the magic database and looks for file that start with: '-----BEGIN RSA PRIVATE KEY-')
+
+**Results**
+An exit code is returned to the operating system:
+0: Success
+1: Sensitive Information found (this will be listed, one instance per line)
+2: Unable to locate configuration file
+3: Unable to read configuration file
+4: Problem examining files
+5: Unexpected error
