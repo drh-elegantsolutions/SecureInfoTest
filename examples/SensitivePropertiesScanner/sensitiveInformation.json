@@ -1,0 +1,9 @@
+{
+   "SensitivePropertiesScanner":{
+      "path":"src/main/resources/config/application.properties",
+      "keys":[
+         "spring.datasource.username",
+         "spring.datasource.password"
+      ]
+   }
+}

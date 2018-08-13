@@ -1,0 +1,21 @@
+[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    precomposeunicode = true
+    excludesFile = gitexcludes
+[remote "origin"]
+    url = git@gitlab.3cbeta.co.uk:cads/SecureInfoTest.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[branch "integration"]
+    remote = origin
+    merge = refs/heads/integration
+[branch "int-release"]
+    remote = origin
+    merge = refs/heads/int-release
+    

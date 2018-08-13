@@ -45,6 +45,11 @@ public class ScannerFactory {
                     scannerList.add(scanner);
                     break;
                 }
+                case "KeyStoreScanner": {
+                    KeyStoreScanner scanner = new KeyStoreScanner();
+                    scannerList.add(scanner);
+                    break;
+                }
                 default:
                     throw new JsonParseException(null, "Unknown scanner: " + scannerName);
             }
@@ -72,37 +77,48 @@ public class ScannerFactory {
     public static void main(String[] args) throws JsonProcessingException, IOException {
         System.out.println("Searching for sensitive information");
         boolean sensitiveInfoPresent = false;
-        for(String filename: args) {
-            File configFile = new File(filename);
-            if(configFile.exists() == false) {
-                System.err.println("Unable to locate configuration file: " + configFile.getAbsolutePath());
-                System.exit(2);
-            }
-
-            if(configFile.canRead() == false) {
-                System.err.println("Unable to read file: " + configFile.getAbsolutePath());
-                System.exit(3);
-            }
-
-            try {
-                File baseDir = configFile.getParentFile();
-                SensitiveInfoScanner scanner = ScannerFactory.createScanner(configFile);
-                List<SensitiveInformation> problems = scanner.scan(baseDir);
-                if(problems.isEmpty() == false) {
-                    sensitiveInfoPresent = true;
-                    System.out.println("Config: " + filename);
-                    for(SensitiveInformation problem: problems) {
-                        System.out.println("\t" + problem.getMessage());
-                    }
+        boolean problemExecuting = false;
+        try {
+            for(String filename: args) {
+                File configFile = new File(filename);
+                if(configFile.exists() == false) {
+                    System.err.println("Unable to locate configuration file: " + configFile.getAbsolutePath());
+                    System.exit(2);
                 }
-            } catch(IOException e) {
-                System.err.println("Problems executing configuration: " + configFile);
-                e.printStackTrace();
+
+                if(configFile.canRead() == false) {
+                    System.err.println("Unable to read file: " + configFile.getAbsolutePath());
+                    System.exit(3);
+                }
+
+                try {
+                    File baseDir = configFile.getParentFile();
+                    SensitiveInfoScanner scanner = ScannerFactory.createScanner(configFile);
+                    List<SensitiveInformation> problems = scanner.scan(baseDir);
+                    if(problems.isEmpty() == false) {
+                        sensitiveInfoPresent = true;
+                        System.out.println("Config: " + filename);
+                        for(SensitiveInformation problem: problems) {
+                            System.out.println("\t" + problem.getMessage());
+                        }
+                    }
+                } catch(IOException e) {
+                    System.err.println("Problems executing configuration: " + configFile);
+                    e.printStackTrace();
+                    problemExecuting = true;
+                }
             }
+        } catch(RuntimeException e) {
+            System.err.println("Unexpected problem executing");
+            e.printStackTrace();
+            System.exit(5);
         }
 
         if(sensitiveInfoPresent) {
             System.exit(1);
+        }
+        if(problemExecuting) {
+            System.exit(4);
         }
 
         System.out.println("No sensitive information found");
